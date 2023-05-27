@@ -8,7 +8,7 @@ from d2l import torch as d2l
 
 
 def f(x):
-    return 3 * x**2 - 4 * x
+    return x**3 - 1 / x
 
 
 for h in 10.0 ** np.arange(-1, -6, -1):
@@ -81,6 +81,12 @@ def plot(
     set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend)
 
 
-x = np.arange(0, 3, 0.1)
-plot(x, [f(x), 2 * x - 3], "x", "f(x)", legend=["f(x)", "Tangent line (x=1)"])
+x = np.arange(0.1, 3, 0.1)
+plot(
+    x,
+    [f(x), 3 * x**2 + 1 / x**2],
+    "x",
+    "f(x)",
+    legend=["f(x)", "Tangent line (x=1)"],
+)
 mpl.pyplot.show()
